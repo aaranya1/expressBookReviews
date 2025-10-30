@@ -9,7 +9,7 @@ public_users.post("/register", (req,res) => {
     let username = req.body.username;
     let password = req.body.password;
     if(username && password){
-        if(users.some((user) => user.username === username)){
+        if(!(isValid(username))){
             res.send("Username already exists!");
         }
         else{
@@ -53,7 +53,7 @@ public_users.get('/title/:title',function (req, res) {
 //  Get book review
 public_users.get('/review/:isbn',function (req, res) {
   let isbn = req.params.isbn;
-  res.send(books[isbn].review);
+  res.send(books[isbn].reviews);
 });
 
 module.exports.general = public_users;
