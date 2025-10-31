@@ -69,6 +69,7 @@ axios.get(`${BASE_URL}/`)
     console.error("Error fetching book list:", error.message);
   });
 
+// Async-await function to search for book by ISBN (Task 11)
 async function getBookByISBN(isbn){
     try{
         const response = await axios.get(`${BASE_URL}/isbn/${isbn}`);
@@ -77,6 +78,30 @@ async function getBookByISBN(isbn){
     }
     catch(error){
         console.error(`Error fetching book with ISBN ${isbn}:`, error.message);
+    }
+}
+
+// Async-await function to search for book by author (Task 12)
+async function getBookByAuthor(author){
+    try{
+        const response = await axios.get(`${BASE_URL}/author/${author}`);
+        console.log(`Book details for author ${author}: `);
+        console.log(response.data);
+    }
+    catch(error){
+        console.error(`Error fetching book with author ${author}:`, error.message);
+    }
+}
+
+// Async-await function to search for book by author (Task 12)
+async function getBookByTitle(title){
+    try{
+        const response = await axios.get(`${BASE_URL}/title/${title}`);
+        console.log(`Book details for title ${title}: `);
+        console.log(response.data);
+    }
+    catch(error){
+        console.error(`Error fetching book with title ${title}:`, error.message);
     }
 }
 
